@@ -1,0 +1,261 @@
+[gd_scene format=3 uid="uid://ugak3hdwb5lb"]
+
+[ext_resource type="Script" uid="uid://b2c6rqcpxa3d4" path="res://scripts/main_scene.gd" id="1_pi0uh"]
+[ext_resource type="Texture2D" uid="uid://dpmfwv1k3n5x" path="res://assets/Photo 4-6a3d.png" id="2_hrphr"]
+[ext_resource type="Texture2D" uid="uid://bpio3fq31p16t" path="res://assets/gpu.png" id="3_86xya"]
+[ext_resource type="Texture2D" uid="uid://c71cb4uxwjtbt" path="res://assets/indir1.png" id="4_cj0ow"]
+[ext_resource type="Texture2D" uid="uid://dqrrshixdk0o3" path="res://assets/cpu.png" id="5_xavy2"]
+[ext_resource type="PackedScene" uid="uid://bob6xrsekc2ua" path="res://scene/player.tscn" id="6_7l8gs"]
+[ext_resource type="Script" uid="uid://bks6d5yylyyxk" path="res://scripts/donanim_tetikleyici.gd" id="6_xavy2"]
+[ext_resource type="Texture2D" uid="uid://csbhvx07tw7wf" path="res://assets/Gemini_Generated_Image_pd2udxpd2udxpd2u-removebg-preview.png" id="7_6e7jr"]
+[ext_resource type="Script" uid="uid://cm0rf7umur5a8" path="res://scripts/goz.gd" id="8_6s1rr"]
+[ext_resource type="Texture2D" uid="uid://c5p4va5xrmh1b" path="res://assets/DARBOĞAZ_kopyası-removebg-preview.png" id="9_hrphr"]
+[ext_resource type="Script" uid="uid://pnxhoawtk0hs" path="res://scripts/diyalog_sistemi.gd" id="10_86xya"]
+[ext_resource type="FontFile" uid="uid://dvrj5m0f5e5mt" path="res://assets/DePixelBreit.ttf" id="11_cj0ow"]
+[ext_resource type="Script" uid="uid://cih7bw4oe1307" path="res://scripts/ui_manager.gd" id="13_6s1rr"]
+[ext_resource type="Texture2D" uid="uid://jvjww5f1x5ph" path="res://assets/Adsız tasarım-2 copy.png" id="13_7l8gs"]
+[ext_resource type="Texture2D" uid="uid://bfgbcv55vgw85" path="res://assets/Adsız tasarım-2 opy.png" id="14_4cqoh"]
+[ext_resource type="AudioStream" uid="uid://qra2eivbyckd" path="res://assets/StartToEnd.wav" id="16_4cqoh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hq1ik"]
+size = Vector2(448, 236)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfk4m"]
+size = Vector2(175.00021, 462.50003)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66tet"]
+size = Vector2(332, 332)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ycvg"]
+size = Vector2(131, 93)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7l8gs"]
+radius = 211.6397
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6e7jr"]
+radius = 244.5323
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6s1rr"]
+radius = 229.01825
+
+[node name="Main_scene" type="Node2D" unique_id=833685544]
+script = ExtResource("1_pi0uh")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1994737136]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1800809759]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=28824611]
+position = Vector2(599, 440)
+texture = ExtResource("2_hrphr")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=969693060 groups=["engeller"]]
+position = Vector2(354, 630)
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_86xya")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=1930983568]
+script = ExtResource("6_xavy2")
+hedef_sahne = "uid://bfwveg58lank1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=1079419507 groups=["engeller"]]
+position = Vector2(12, -28)
+shape = SubResource("RectangleShape2D_hq1ik")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=542622172 groups=["engeller"]]
+position = Vector2(1053.9999, 249)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_cj0ow")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D2" unique_id=1526583612]
+position = Vector2(-65, 1.25)
+scale = Vector2(0.99999964, 0.99999964)
+script = ExtResource("6_xavy2")
+hedef_sahne = "uid://c8adxpq3noihn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/Area2D" unique_id=465284405 groups=["engeller"]]
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_nfk4m")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=699228713 groups=["engeller"]]
+position = Vector2(808, 437)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_xavy2")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D3" unique_id=1903425391]
+position = Vector2(0, -2)
+script = ExtResource("6_xavy2")
+hedef_sahne = "uid://brqffwgurhioh"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D3/Area2D" unique_id=584416223 groups=["engeller"]]
+shape = SubResource("RectangleShape2D_66tet")
+
+[node name="player" parent="." unique_id=96281664 instance=ExtResource("6_7l8gs")]
+position = Vector2(422, 339)
+
+[node name="goz" type="Sprite2D" parent="." unique_id=387421461 node_paths=PackedStringArray("hedef")]
+position = Vector2(1131, 839.99994)
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("7_6e7jr")
+script = ExtResource("8_6s1rr")
+hedef = NodePath("../player")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1292336045]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=490592695]
+position = Vector2(1134.5, 833.5)
+shape = SubResource("RectangleShape2D_7ycvg")
+
+[node name="DiyalogSistemi" type="CanvasLayer" parent="." unique_id=776399501]
+process_mode = 3
+script = ExtResource("10_86xya")
+
+[node name="cerceve" type="Sprite2D" parent="DiyalogSistemi" unique_id=527933508]
+position = Vector2(480, 729)
+scale = Vector2(1.5239998, 1.524)
+texture = ExtResource("9_hrphr")
+
+[node name="yazi_etiketi" type="Label" parent="DiyalogSistemi/cerceve" unique_id=876915190]
+anchors_preset = -1
+anchor_left = 0.303
+anchor_top = 0.47700003
+anchor_right = 0.90000004
+anchor_bottom = 0.67700005
+offset_left = -333.04797
+offset_top = -187.62502
+offset_right = -333.1501
+offset_bottom = -187.62502
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_cj0ow")
+text = "
+"
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=713315490]
+offset_left = 314.0
+offset_top = 463.0
+offset_right = 356.33334
+offset_bottom = 481.0
+scale = Vector2(2.8, 2.8)
+theme_override_fonts/font = ExtResource("11_cj0ow")
+text = "GPU"
+
+[node name="Label2" type="Label" parent="." unique_id=109381280]
+offset_left = 754.99994
+offset_top = 289.99997
+offset_right = 795.35706
+offset_bottom = 306.99997
+scale = Vector2(2.8, 2.8)
+theme_override_fonts/font = ExtResource("11_cj0ow")
+text = "CPU"
+
+[node name="Label3" type="Label" parent="." unique_id=2133895393]
+offset_left = 1013.99994
+offset_top = 98.99999
+offset_right = 1064.0
+offset_bottom = 121.99999
+scale = Vector2(2.8, 2.8)
+theme_override_fonts/font = ExtResource("11_cj0ow")
+text = "RAM"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=656452021]
+
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=929304486]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("13_6s1rr")
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/UI" unique_id=1885616998]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 37.0
+offset_right = 285.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+
+[node name="HarmonyBar" type="ProgressBar" parent="CanvasLayer/UI" unique_id=878828139]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 97.0
+offset_right = 285.0
+offset_bottom = 124.0
+theme_override_constants/outline_size = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI" unique_id=1735282934]
+layout_mode = 0
+offset_left = 1100.0
+offset_right = 2155.0
+offset_bottom = 718.0
+scale = Vector2(0.07, 0.07)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/HBoxContainer" unique_id=1224981571]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("14_4cqoh")
+stretch_mode = 5
+
+[node name="SayiLabel" type="Label" parent="CanvasLayer/UI/HBoxContainer" unique_id=525574563]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 400
+
+[node name="Gelişim" type="Label" parent="CanvasLayer" unique_id=35201960]
+offset_left = 126.0
+offset_top = 16.0
+offset_right = 184.0
+offset_bottom = 39.0
+theme_override_constants/outline_size = 10
+text = "Gelişim"
+
+[node name="Uyumluluk" type="Label" parent="CanvasLayer" unique_id=427787769]
+offset_left = 116.0
+offset_top = 76.0
+offset_right = 201.0
+offset_bottom = 99.0
+theme_override_constants/outline_size = 10
+text = "Uyumluluk"
+
+[node name="Pong" type="Sprite2D" parent="." unique_id=567356899]
+position = Vector2(68.125, 388.89853)
+scale = Vector2(0.07028619, 0.070286185)
+texture = ExtResource("13_7l8gs")
+
+[node name="Area2D" type="Area2D" parent="Pong" unique_id=1299281347]
+script = ExtResource("6_xavy2")
+hedef_sahne = "uid://cm3b7yrpejipi"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pong/Area2D" unique_id=44709553]
+shape = SubResource("CircleShape2D_7l8gs")
+
+[node name="Snake" type="Sprite2D" parent="." unique_id=1425428263]
+position = Vector2(1056, 711)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("13_7l8gs")
+
+[node name="Area2D" type="Area2D" parent="Snake" unique_id=1165801705]
+script = ExtResource("6_xavy2")
+hedef_sahne = "uid://b21hggrf1ade1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Snake/Area2D" unique_id=1432095503]
+shape = SubResource("CircleShape2D_6e7jr")
+
+[node name="Fish" type="Sprite2D" parent="." unique_id=2085511393]
+position = Vector2(1152, 395)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("13_7l8gs")
+
+[node name="Area2D" type="Area2D" parent="Fish" unique_id=36030522]
+script = ExtResource("6_xavy2")
+hedef_sahne = "uid://cw2f56ltbc80g"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fish/Area2D" unique_id=409444474]
+shape = SubResource("CircleShape2D_6s1rr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1471116479]
+stream = ExtResource("16_4cqoh")
+autoplay = true

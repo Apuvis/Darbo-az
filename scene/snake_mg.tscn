@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://b21hggrf1ade1"]
+
+[ext_resource type="Script" uid="uid://b62oflufkj845" path="res://scripts/arka_plan.gd" id="1_p75kb"]
+[ext_resource type="Script" uid="uid://cqlsdtt2upk0s" path="res://scripts/sneak_head.gd" id="2_frgk5"]
+[ext_resource type="Texture2D" uid="uid://d1a0p4u7o6wy8" path="res://assets/yilankafa.png" id="3_p75kb"]
+[ext_resource type="Script" uid="uid://bicfurwx6n2cu" path="res://scripts/elma.gd" id="4_lacf1"]
+[ext_resource type="Texture2D" uid="uid://jvjww5f1x5ph" path="res://assets/Adsız tasarım-2 copy.png" id="5_frgk5"]
+[ext_resource type="AudioStream" uid="uid://dlneows4qh8fu" path="res://assets/SystemOverload.wav" id="6_frgk5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o76oq"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhtwq"]
+size = Vector2(21, 20)
+
+[node name="SnakeMg" type="Node2D" unique_id=1730041561]
+
+[node name="ArkaPlan" type="ColorRect" parent="." unique_id=1480100912]
+offset_right = 320.0
+offset_bottom = 320.0
+color = Color(0.204, 0.213, 0.24, 1)
+script = ExtResource("1_p75kb")
+
+[node name="SneakHead" type="Area2D" parent="." unique_id=1831635152]
+script = ExtResource("2_frgk5")
+
+[node name="Sprite2D" type="Sprite2D" parent="SneakHead" unique_id=1153263413]
+position = Vector2(16, 16)
+scale = Vector2(0.146, 0.14800002)
+texture = ExtResource("3_p75kb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SneakHead" unique_id=1968716366]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_o76oq")
+
+[node name="Timer" type="Timer" parent="SneakHead" unique_id=598222804]
+wait_time = 0.15
+autostart = true
+
+[node name="Elma" type="Area2D" parent="." unique_id=16616872]
+script = ExtResource("4_lacf1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Elma" unique_id=1981905074]
+position = Vector2(14.5, 17)
+shape = SubResource("RectangleShape2D_qhtwq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Elma" unique_id=945021216]
+position = Vector2(16, 14)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("5_frgk5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=190756965]
+stream = ExtResource("6_frgk5")
+autoplay = true
+
+[connection signal="area_entered" from="SneakHead" to="SneakHead" method="_on_area_entered"]
+[connection signal="timeout" from="SneakHead/Timer" to="SneakHead" method="_on_timer_timeout"]

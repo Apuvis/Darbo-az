@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://cm3b7yrpejipi"]
+
+[ext_resource type="Script" uid="uid://6twfg1k0sfo5" path="res://Pong Scripts/main.gd" id="1_6bp64"]
+[ext_resource type="Texture2D" uid="uid://cs7vvmhdfbfkm" path="res://assets/91657.jpg" id="2_344ge"]
+[ext_resource type="Script" uid="uid://by2gkwfrwh2s6" path="res://Pong Scripts/sol_raket.gd" id="3_ynf5e"]
+[ext_resource type="Texture2D" uid="uid://b1wqucqpckg4t" path="res://assets/Adsız tasarım-9.png" id="4_hptm8"]
+[ext_resource type="Script" uid="uid://bk6wef3ojce56" path="res://Pong Scripts/character_body_2d.gd" id="5_d1ilt"]
+[ext_resource type="Script" uid="uid://drfml3widbvgr" path="res://Pong Scripts/top.gd" id="6_6iyac"]
+[ext_resource type="Texture2D" uid="uid://bbsv07pwi0yiy" path="res://assets/DATA.png" id="7_fdnlq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(0.25, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(1, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
+size = Vector2(1180.75, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
+size = Vector2(1196.375, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vw27"]
+size = Vector2(29, 28)
+
+[node name="Main" type="Node2D" unique_id=1574360877]
+script = ExtResource("1_6bp64")
+
+[node name="91657" type="Sprite2D" parent="." unique_id=900195611]
+position = Vector2(600, 438)
+scale = Vector2(0.23919997, 0.26514697)
+texture = ExtResource("2_344ge")
+
+[node name="SolRaket" type="CharacterBody2D" parent="." unique_id=574638175]
+position = Vector2(26, 313)
+script = ExtResource("3_ynf5e")
+
+[node name="ColorRect" type="ColorRect" parent="SolRaket" unique_id=378612028]
+offset_left = -10.0
+offset_top = -50.0
+offset_right = 10.0
+offset_bottom = 50.0
+pivot_offset = Vector2(10, 50)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="SolRaket/ColorRect" unique_id=1960660090]
+layout_mode = 0
+offset_left = -105.0
+offset_top = -20.0
+offset_right = 118.33333
+offset_bottom = 118.0
+texture = ExtResource("4_hptm8")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SolRaket" unique_id=1992281253]
+position = Vector2(18.875, -1)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="SagRaket" type="CharacterBody2D" parent="." unique_id=1017142444]
+position = Vector2(1123, 325)
+script = ExtResource("5_d1ilt")
+
+[node name="ColorRect" type="ColorRect" parent="SagRaket" unique_id=607556242]
+offset_left = -10.0
+offset_top = -50.0
+offset_right = 10.0
+offset_bottom = 50.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="SagRaket/ColorRect" unique_id=538404309]
+layout_mode = 0
+offset_left = 121.99993
+offset_top = 124.0
+offset_right = 338.9856
+offset_bottom = 264.5093
+rotation = 3.1380625
+texture = ExtResource("4_hptm8")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SagRaket" unique_id=764203834]
+position = Vector2(-19.5, 1)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=270910664]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=689958250]
+position = Vector2(605.625, 869)
+shape = SubResource("RectangleShape2D_7mycd")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1848299774]
+position = Vector2(0, 23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1063638892]
+position = Vector2(597.8125, -16)
+shape = SubResource("RectangleShape2D_272bh")
+
+[node name="Top" type="CharacterBody2D" parent="." unique_id=1728633646]
+position = Vector2(519, 297)
+script = ExtResource("6_6iyac")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top" unique_id=1042069237]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_5vw27")
+
+[node name="ColorRect" type="ColorRect" parent="Top" unique_id=575902548]
+offset_left = -15.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+color = Color(1, 1, 1, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Top/ColorRect" unique_id=1497689672]
+layout_mode = 0
+offset_left = -37.0
+offset_top = -19.0
+offset_right = 66.0
+offset_bottom = 49.0
+texture = ExtResource("7_fdnlq")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=704724229]
+offset_left = 414.0
+offset_top = 240.0
+offset_right = 747.0
+offset_bottom = 369.0
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1969980059]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://ugak3hdwb5lb"]
+
+[ext_resource type="Script" uid="uid://b2c6rqcpxa3d4" path="res://scripts/main_scene.gd" id="1_pi0uh"]
+[ext_resource type="Texture2D" uid="uid://hbwqwrj6sxaq" path="res://assets/Photo 4-6a3d.png" id="2_hrphr"]
+[ext_resource type="Texture2D" uid="uid://bpio3fq31p16t" path="res://assets/gpu.png" id="3_86xya"]
+[ext_resource type="Texture2D" uid="uid://c71cb4uxwjtbt" path="res://assets/indir1.png" id="4_cj0ow"]
+[ext_resource type="Texture2D" uid="uid://dqrrshixdk0o3" path="res://assets/cpu.png" id="5_xavy2"]
+[ext_resource type="PackedScene" uid="uid://bob6xrsekc2ua" path="res://scene/player.tscn" id="6_7l8gs"]
+[ext_resource type="Script" uid="uid://bks6d5yylyyxk" path="res://scripts/donanim_tetikleyici.gd" id="6_xavy2"]
+[ext_resource type="Texture2D" uid="uid://csbhvx07tw7wf" path="res://assets/Gemini_Generated_Image_pd2udxpd2udxpd2u-removebg-preview.png" id="7_6e7jr"]
+[ext_resource type="Script" uid="uid://cm0rf7umur5a8" path="res://scripts/goz.gd" id="8_6s1rr"]
+[ext_resource type="Texture2D" uid="uid://c5p4va5xrmh1b" path="res://assets/DARBOĞAZ_kopyası-removebg-preview.png" id="9_hrphr"]
+[ext_resource type="Script" uid="uid://pnxhoawtk0hs" path="res://scripts/diyalog_sistemi.gd" id="10_86xya"]
+[ext_resource type="FontFile" uid="uid://dvrj5m0f5e5mt" path="res://assets/DePixelBreit.ttf" id="11_cj0ow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hq1ik"]
+size = Vector2(448, 236)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfk4m"]
+size = Vector2(175.00021, 462.50003)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66tet"]
+size = Vector2(332, 332)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ycvg"]
+size = Vector2(131, 93)
+
+[node name="Main_scene" type="Node2D" unique_id=833685544]
+script = ExtResource("1_pi0uh")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1994737136]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1800809759]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=28824611]
+position = Vector2(599, 440)
+texture = ExtResource("2_hrphr")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=969693060 groups=["engeller"]]
+position = Vector2(354, 630)
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_86xya")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=1930983568]
+script = ExtResource("6_xavy2")
+hedef_sahne = "gpu_interface.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=1079419507 groups=["engeller"]]
+position = Vector2(12, -28)
+shape = SubResource("RectangleShape2D_hq1ik")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=542622172 groups=["engeller"]]
+position = Vector2(1053.9999, 249)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_cj0ow")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D2" unique_id=1526583612]
+position = Vector2(-65, 1.25)
+scale = Vector2(0.99999964, 0.99999964)
+script = ExtResource("6_xavy2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/Area2D" unique_id=465284405 groups=["engeller"]]
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_nfk4m")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=699228713 groups=["engeller"]]
+position = Vector2(808, 437)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_xavy2")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D3" unique_id=1903425391]
+position = Vector2(0, -2)
+script = ExtResource("6_xavy2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D3/Area2D" unique_id=584416223 groups=["engeller"]]
+shape = SubResource("RectangleShape2D_66tet")
+
+[node name="player" parent="." unique_id=96281664 instance=ExtResource("6_7l8gs")]
+position = Vector2(422, 339)
+
+[node name="goz" type="Sprite2D" parent="." unique_id=387421461 node_paths=PackedStringArray("hedef")]
+position = Vector2(1131, 839.99994)
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("7_6e7jr")
+script = ExtResource("8_6s1rr")
+hedef = NodePath("../player")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1292336045]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=490592695]
+position = Vector2(1134.5, 833.5)
+shape = SubResource("RectangleShape2D_7ycvg")
+
+[node name="DiyalogSistemi" type="CanvasLayer" parent="." unique_id=776399501]
+process_mode = 3
+script = ExtResource("10_86xya")
+
+[node name="cerceve" type="Sprite2D" parent="DiyalogSistemi" unique_id=527933508]
+position = Vector2(480, 729)
+scale = Vector2(1.5239998, 1.524)
+texture = ExtResource("9_hrphr")
+
+[node name="yazi_etiketi" type="Label" parent="DiyalogSistemi/cerceve" unique_id=876915190]
+anchors_preset = -1
+anchor_left = 0.303
+anchor_top = 0.47700003
+anchor_right = 0.90000004
+anchor_bottom = 0.67700005
+offset_left = -333.04797
+offset_top = -187.62502
+offset_right = -333.1501
+offset_bottom = -187.62502
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_cj0ow")
+text = "
+"
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=713315490]
+offset_left = 314.0
+offset_top = 463.0
+offset_right = 356.33334
+offset_bottom = 481.0
+scale = Vector2(2.8, 2.8)
+theme_override_fonts/font = ExtResource("11_cj0ow")
+text = "GPU"
+
+[node name="Label2" type="Label" parent="." unique_id=109381280]
+offset_left = 754.99994
+offset_top = 289.99997
+offset_right = 795.35706
+offset_bottom = 306.99997
+scale = Vector2(2.8, 2.8)
+theme_override_fonts/font = ExtResource("11_cj0ow")
+text = "CPU"
+
+[node name="Label3" type="Label" parent="." unique_id=2133895393]
+offset_left = 1013.99994
+offset_top = 98.99999
+offset_right = 1064.0
+offset_bottom = 121.99999
+scale = Vector2(2.8, 2.8)
+theme_override_fonts/font = ExtResource("11_cj0ow")
+text = "RAM"

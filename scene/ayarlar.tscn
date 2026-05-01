@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bqfblswkyv01b"]
+
+[ext_resource type="Script" uid="uid://dd8k28ew4rg0k" path="res://scripts/ayarlar.gd" id="1_f7p04"]
+[ext_resource type="Texture2D" uid="uid://cytdw41lyley6" path="res://assets/OD0Ywt.png" id="2_1rbib"]
+[ext_resource type="Texture2D" uid="uid://bvdn5b2ggxf11" path="res://assets/Ses seviyes.jpg" id="2_f7p04"]
+[ext_resource type="Texture2D" uid="uid://oitceyowu0ju" path="res://assets/Tam Ekran.jpg" id="3_1rbib"]
+[ext_resource type="Texture2D" uid="uid://bqyve1a8yl0" path="res://assets/Başlıksız.jpg" id="4_6xoxu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mf4y2"]
+size = Vector2(1029.9297, 273.86926)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_haci7"]
+size = Vector2(1018.8178, 271.3565)
+
+[node name="Ayarlar" type="Control" unique_id=254040688]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_f7p04")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2111035147]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_1rbib")
+
+[node name="SesSeviyes" type="Sprite2D" parent="." unique_id=1695234607]
+position = Vector2(538, 147.00002)
+scale = Vector2(0.5677485, 0.43040293)
+texture = ExtResource("2_f7p04")
+
+[node name="HSlider" type="HSlider" parent="." unique_id=1556427751]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.018000001
+anchor_bottom = 0.020000001
+offset_left = -3.0
+offset_top = 245.0
+offset_right = 1173.436
+offset_bottom = 262.4
+
+[node name="TamEkran" type="Sprite2D" parent="." unique_id=62169933]
+position = Vector2(538, 447)
+scale = Vector2(0.568, 0.398)
+texture = ExtResource("3_1rbib")
+
+[node name="Area2D" type="Area2D" parent="TamEkran" unique_id=721029442]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TamEkran/Area2D" unique_id=1894952611]
+position = Vector2(2.640808, -1.2563477)
+scale = Vector2(0.9999999, 1)
+shape = SubResource("RectangleShape2D_mf4y2")
+
+[node name="GeriDön" type="Sprite2D" parent="." unique_id=1114191945]
+position = Vector2(538, 647)
+scale = Vector2(0.5673242, 0.398)
+texture = ExtResource("4_6xoxu")
+
+[node name="Area2D" type="Area2D" parent="GeriDön" unique_id=1332711472]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GeriDön/Area2D" unique_id=168995733]
+position = Vector2(1.7626953, 0.00036621094)
+shape = SubResource("RectangleShape2D_haci7")
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="input_event" from="TamEkran/Area2D" to="." method="_on_tam_ekran_input_event"]
+[connection signal="input_event" from="GeriDön/Area2D" to="." method="_on_geri_don_input_event"]

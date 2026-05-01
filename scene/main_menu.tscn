@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://ccm0crpxtsrv5"]
+
+[ext_resource type="Script" uid="uid://dc6oish4o2j51" path="res://scripts/main_menu.gd" id="1_sepwh"]
+[ext_resource type="Texture2D" uid="uid://cytdw41lyley6" path="res://assets/OD0Ywt.png" id="2_2atga"]
+[ext_resource type="Texture2D" uid="uid://nth8nahsu3ii" path="res://assets/Oyunu Başlat-Photoroom.png" id="3_sepwh"]
+[ext_resource type="Texture2D" uid="uid://dbxxp4dlut5cy" path="res://assets/Ayarlar-Photoroom.png" id="4_14wem"]
+[ext_resource type="Texture2D" uid="uid://yr70ek0hpu7x" path="res://assets/Oyundan Çık-Photoroom.png" id="5_2atga"]
+[ext_resource type="AudioStream" uid="uid://di8i4u487nd2k" path="res://assets/BugButcher.wav" id="6_2atga"]
+[ext_resource type="Texture2D" uid="uid://dfsktqmnwv4xa" path="res://assets/DARBOĞAZ-4.png" id="6_14wem"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_by01r"]
+size = Vector2(539, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dclss"]
+size = Vector2(544, 142)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmxu4"]
+size = Vector2(547, 149)
+
+[node name="MainMenu" type="Control" unique_id=672780735]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_sepwh")
+
+[node name="VideoStreamPlayer" type="TextureRect" parent="." unique_id=1287640292]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_2atga")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=921938923]
+position = Vector2(601, 446)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_sepwh")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=1233653650]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=467374721]
+position = Vector2(-2.4999852, 3.7500076)
+shape = SubResource("RectangleShape2D_by01r")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2037141568]
+position = Vector2(601, 606)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_14wem")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D2" unique_id=1685323273]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/Area2D" unique_id=664942538]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_dclss")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=215668449]
+position = Vector2(600, 770)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_2atga")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D3" unique_id=1194205917]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D3/Area2D" unique_id=1923247865]
+position = Vector2(-2.50003, 4.9999695)
+shape = SubResource("RectangleShape2D_hmxu4")
+
+[node name="Darboğaz3(1)" type="Sprite2D" parent="." unique_id=1935879134]
+position = Vector2(586.00006, 199.00002)
+scale = Vector2(0.4421296, 0.4421296)
+texture = ExtResource("6_14wem")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1219011841]
+stream = ExtResource("6_2atga")
+volume_db = 1.0
+autoplay = true
+
+[connection signal="input_event" from="Sprite2D/Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Sprite2D2/Area2D" to="." method="_on_area_2d_2_input_event"]
+[connection signal="input_event" from="Sprite2D3/Area2D" to="." method="_on_area_2d_3_input_event"]
